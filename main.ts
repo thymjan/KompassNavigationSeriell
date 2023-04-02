@@ -14,6 +14,19 @@ function getDeviation (Zielrichtung: number) {
         Abweichung += -360
     }
 }
+function KursKorrigieren (korrAbweichung: number) {
+    basic.setLedColor(0x00ff00)
+    if (korrAbweichung >= 0) {
+        motors.dualMotorPower(Motor.B, 70)
+        basic.pause(50)
+        motors.dualMotorPower(Motor.B, 0)
+    } else {
+        motors.dualMotorPower(Motor.A, 70)
+        basic.pause(50)
+        motors.dualMotorPower(Motor.B, 0)
+    }
+    basic.setLedColor(0x000000)
+}
 function InfoAusgabe () {
     basic.showCompass(25)
     basic.setLedColor(0xff0000)
@@ -26,6 +39,7 @@ function Ansteuern (Zielrichtung: number) {
     while (Math.abs(Abweichung) > Toleranz) {
         getDeviation(Zielrichtung)
         InfoAusgabe()
+        KursKorrigieren(Abweichung)
     }
     basic.setLedColor(0x0000ff)
     basic.pause(1000)
