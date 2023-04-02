@@ -1,6 +1,3 @@
-/**
- * Das ist ein Hinweis
- */
 function getDeviation (Zielrichtung: number) {
     IST = input.compassHeading()
     Kurs = Zielrichtung
@@ -26,7 +23,7 @@ function InfoAusgabe () {
 function Ansteuern (Zielrichtung: number) {
     getDeviation(Zielrichtung)
     InfoAusgabe()
-    while (Math.abs(Abweichung) > 5) {
+    while (Math.abs(Abweichung) <= Toleranz) {
         getDeviation(Zielrichtung)
         InfoAusgabe()
     }
@@ -34,6 +31,7 @@ function Ansteuern (Zielrichtung: number) {
     basic.pause(1000)
     basic.setLedColor(0x000000)
 }
+let Toleranz = 0
 let Abweichung = 0
 let Kurs = 0
 let IST = 0
@@ -44,10 +42,14 @@ let SOUTH = -180
 let WEST = -270
 Kurs = 0
 Abweichung = 0
+Toleranz = 5
 serial.redirectToUSB()
 serial.writeLine("..")
 serial.writeLine("Los gehts!")
 serial.writeLine("Erstmal bitte Kompass kalibrieren!")
+/**
+ * Das ist ein Hinweis
+ */
 // mach das immer
 basic.forever(function () {
     // Hier gewünschten Kurs einfügen
