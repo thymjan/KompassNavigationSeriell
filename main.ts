@@ -23,7 +23,7 @@ function InfoAusgabe () {
 function Ansteuern (Zielrichtung: number) {
     getDeviation(Zielrichtung)
     InfoAusgabe()
-    while (Math.abs(Abweichung) <= Toleranz) {
+    while (Math.abs(Abweichung) > Toleranz) {
         getDeviation(Zielrichtung)
         InfoAusgabe()
     }
