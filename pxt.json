@@ -1,5 +1,5 @@
 {
-    "name": "Kompass Ivestigation Trockenkurs Seriell",
+    "name": "Kompass Investigation Trockenkurs Seriell",
     "description": "",
     "dependencies": {
         "core": "*"

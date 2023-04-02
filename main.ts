@@ -51,11 +51,11 @@ serial.writeLine("Erstmal bitte Kompass kalibrieren!")
 // mach das immer
 basic.forever(function () {
     // Hier gewünschten Kurs einfügen
-    Ansteuern(SOUTH)
-    // Hier gewünschten Kurs einfügen
-    Ansteuern(WEST)
+    Ansteuern(NORTH)
     // Hier gewünschten Kurs einfügen
     Ansteuern(EAST)
     // Hier gewünschten Kurs einfügen
-    Ansteuern(NORTH)
+    Ansteuern(SOUTH)
+    // Hier gewünschten Kurs einfügen
+    Ansteuern(WEST)
 })
